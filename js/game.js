@@ -35,7 +35,8 @@ function showSection(sectionId, route = null) {
     input.type = "text";
     input.placeholder = "Cat name";
 
-    button.textContent = "Continue";
+    button.textContent = "Start";
+    button.classList.add('input-button')
 
     button.addEventListener("click", () => {
       state[section.inputKey] = input.value.trim() || "Cat";

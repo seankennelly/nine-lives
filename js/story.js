@@ -4,7 +4,7 @@ const story = {
   // ===================
   name_cat: {
     type: "input",
-    text: "It's 2am and you are a stray cat in an alleyway. What is your name?",
+    text: "It's 2am and you are a stray cat in an alleyway. \n\nWhat is your name?",
     inputKey: "catName",
     next: "start",
   },
@@ -88,7 +88,7 @@ const story = {
   // ===================
 
   bedroom: {
-    text: "You slip into the bedroom. On the floor is a lifeless body, face down. He has a stange look on his face. Not of fear, but of confusion. Taken aback, you back up and accidentally knock into a table leg, sending the lamp on it crashing to the floor. The noises outside stop abruptly, then you hear footsteps hurrying towards the bedroom. What will you do?",
+    text: "You slip into the bedroom. On the floor is a lifeless body, face down. He has a stange look on his face. Not of fear, but of confusion. Taken by surprise, you back up and accidentally knock into a table leg, sending the lamp on it crashing to the floor. The noises outside stop abruptly, then you hear footsteps hurrying towards the bedroom. What will you do?",
     choices: [
       { text: "Hide under the bed", next: "under_bed" },
       { text: "Ready for attack", next: "ending_bedroom_bad" },
