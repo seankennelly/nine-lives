@@ -40,8 +40,8 @@ p {
 }
 
 img {
-    width: 112px;
-    height: 104px;
+    width: 160px;
+    height: auto;
     image-rendering: pixelated;
 }
 
@@ -64,4 +64,16 @@ button {
 button.input-button {
   margin: 0.5rem;
   padding: 0.25rem 0.5rem;
+}
+
+#pixel-art {
+    min-height: 4rem;
+}
+
+#story-text {
+    min-height: 4rem;
+}
+
+#choices {
+    min-height: 4rem;
 }
