@@ -12,8 +12,16 @@ function formatText(text) {
 function showSection(sectionId, route = null) {
     const section = story[sectionId];
 
-    const pixelArt = document.querySelector("#pixel-art");
+    if (!section) {
+        console.error(`Story section "${sectionId}" does not exist.`);
+        return;
+    }
 
+    const pixelArt = document.querySelector("#pixel-art");
+    const storyText = document.querySelector("#story-text");
+    const choices = document.querySelector("#choices");
+
+    // IMAGE
     pixelArt.innerHTML = "";
 
     const image = document.createElement("img");
@@ -23,62 +31,55 @@ function showSection(sectionId, route = null) {
 
     pixelArt.appendChild(image);
 
-    if (!section) {
-        console.error(`Story section "${sectionId}" does not exist.`);
-        return;
-    }
-
+    // TEXT
     let text = section.text;
 
     if (typeof section.text === "object") {
         text = section.text[route];
     }
 
-    const storyText = document.querySelector("#story-text");
-    const choices = document.querySelector("#choices");
+    const formattedText = formatText(text);
 
+    // CONTROLS
     choices.innerHTML = "";
+    choices.style.visibility = "hidden";
 
-    typeText(storyText, formatText(text), () => {
-        // Text input node
-        if (section.type === "input") {
-            const input = document.createElement("input");
-            const button = document.createElement("button");
+    // Text input node
+    if (section.type === "input") {
+        const input = document.createElement("input");
+        const button = document.createElement("button");
 
-            input.type = "text";
-            input.placeholder = "Cat name";
+        input.type = "text";
+        input.placeholder = "Cat name";
 
-            button.textContent = "Start";
-            button.classList.add("input-button");
+        button.textContent = "Start";
+        button.classList.add("input-button");
 
-            button.addEventListener("click", () => {
-                state[section.inputKey] = input.value.trim() || "Cat";
+        button.addEventListener("click", () => {
+            state[section.inputKey] = input.value.trim() || "Cat";
 
-                showSection(section.next);
-            });
+            showSection(section.next);
+        });
 
-            choices.appendChild(input);
-            choices.appendChild(button);
+        choices.appendChild(input);
+        choices.appendChild(button);
+    }
 
-            return;
-        }
+    // Ending node
+    else if (section.type === "ending") {
+        const button = document.createElement("button");
 
-        // Ending node
-        if (section.type === "ending") {
-            const button = document.createElement("button");
+        button.textContent = "Start again";
 
-            button.textContent = "Start again";
+        button.addEventListener("click", () => {
+            showSection("start");
+        });
 
-            button.addEventListener("click", () => {
-                showSection("start");
-            });
+        choices.appendChild(button);
+    }
 
-            choices.appendChild(button);
-
-            return;
-        }
-
-        // Normal choice node
+    // Normal choice node
+    else {
         section.choices.forEach((choice) => {
             const button = document.createElement("button");
 
@@ -90,6 +91,16 @@ function showSection(sectionId, route = null) {
 
             choices.appendChild(button);
         });
+    }
+
+    // Reserve the final text height before typing
+    storyText.style.minHeight = "";
+    storyText.textContent = formattedText;
+    storyText.style.minHeight = `${storyText.scrollHeight}px`;
+
+    // Type the text, then reveal the controls
+    typeText(storyText, formattedText, () => {
+        choices.style.visibility = "visible";
     });
 }
 

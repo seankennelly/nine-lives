@@ -1,79 +1,74 @@
 :root {
-  /* --font-family: "Geist Pixel", sans-serif; */
+    /* --font-family: "Geist Pixel", sans-serif; */
 }
 
 html {
-  font-size: 22px;
-  @media (min-width: 992px) {
-    font-size: 30px;
-  }
+    font-size: 20px;
+    @media (min-width: 992px) {
+        font-size: 30px;
+    }
 }
 
 * {
-  font-family: "Geist Pixel", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "ELSH" 0;
+    font-family: "Geist Pixel", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "ELSH" 0;
 }
 
 body {
-  background-color: black;
-  color: white;
-  text-align: center;
+    background-color: black;
+    color: white;
+    text-align: center;
 
-  min-height: 100vh;
-  width: 80%;
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    min-height: 100vh;
+    width: 80%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game {
+    width: 100%;
+}
+
+p {
+    font-size: 1rem;
+}
+
+#pixel-art img {
+    width: 220px;
+    height: auto;
+    image-rendering: pixelated;
+    @media (min-width: 992px) {
+        width: 250px;
+    }
+}
+
+input {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: 1px dashed white;
+    margin: 0.5rem 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+}
+
+button.input-button {
+    margin: 0.5rem;
+    padding: 0.25rem 0.5rem;
 }
 
 #story-text {
     white-space: pre-line;
-}
-
-p {
-  font-size: 1rem;
-}
-
-img {
-    width: 160px;
-    height: auto;
-    image-rendering: pixelated;
-}
-
-input {
-  background-color: white;
-  color: black;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-button {
-  background-color: black;
-  color: white;
-  border: 1px dashed white;
-  margin: 0.5rem 1rem;
-  font-size: 0.8rem;
-  padding: 0.5rem;
-}
-
-button.input-button {
-  margin: 0.5rem;
-  padding: 0.25rem 0.5rem;
-}
-
-#pixel-art {
-    min-height: 4rem;
-}
-
-#story-text {
-    min-height: 4rem;
-}
-
-#choices {
-    min-height: 4rem;
 }
