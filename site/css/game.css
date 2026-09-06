@@ -9,6 +9,8 @@ html {
     }
 }
 
+
+
 * {
     font-family: "Geist Pixel", sans-serif;
     font-optical-sizing: auto;
@@ -23,20 +25,27 @@ body {
     text-align: center;
 
     min-height: 100vh;
-    width: 80%;
-    margin: 1rem auto;
+    /* margin: 1rem auto; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.ending {
+    border: 10px white dashed;
+}
+
 #game {
-    width: 100%;
+    width: 80%;
 }
 
 p {
     font-size: 1rem;
+}
+
+#pixel-art {
+    position: relative;
 }
 
 #pixel-art img {
@@ -46,6 +55,27 @@ p {
     @media (min-width: 992px) {
         width: 250px;
     }
+}
+
+#pixel-art.fireworks::before,
+#pixel-art.fireworks::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 120px;
+    transform: translateY(-50%);
+    image-rendering: pixelated;
+}
+
+#pixel-art.fireworks::before {
+    right: calc(70% + 1rem);
+    background: url("../images/ending_fireworks_left.gif") center / contain no-repeat;
+}
+
+#pixel-art.fireworks::after {
+    left: calc(70% + 1rem);
+    background: url("../images/ending_fireworks_right.gif") center / contain no-repeat;
 }
 
 input {
