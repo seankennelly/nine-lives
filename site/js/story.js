@@ -6,6 +6,7 @@ const story = {
         image: "title_card.gif",
         text: "",
         choices: [{ text: "Start", next: "name_cat" }],
+        // TODO: Make rooftop and stars art
     },
 
     // ===================
