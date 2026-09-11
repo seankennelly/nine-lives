@@ -19,7 +19,10 @@ function showSection(sectionId, route = null) {
 
     const pixelArt = document.querySelector("#pixel-art");
     document.body.classList.toggle("ending", section.type === "ending");
-    pixelArt.classList.toggle("fireworks", section.fireworks === true);
+
+    // Add ending decorations to pixel art
+    pixelArt.classList.toggle("fireworks", section.decoration === "fireworks");
+    pixelArt.classList.toggle("arrows", section.decoration === "arrows");
     
     const storyText = document.querySelector("#story-text");
     const choices = document.querySelector("#choices");
@@ -79,13 +82,6 @@ function showSection(sectionId, route = null) {
         });
 
         choices.appendChild(button);
-
-        document.body.classList.add("ending");
-
-        if (section.fireworks === true) {
-            const artwork = document.getElementById("pixel-art");
-            artwork.classList.add("fireworks");
-        }
     }
 
     // Normal choice node

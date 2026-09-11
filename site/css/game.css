@@ -57,6 +57,27 @@ p {
     }
 }
 
+#pixel-art.arrows::before,
+#pixel-art.arrows::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 120px;
+    transform: translateY(-50%);
+    image-rendering: pixelated;
+}
+
+#pixel-art.arrows::before {
+    right: calc(70% + 1rem);
+    background: url("../images/ending_arrows.gif") center / contain no-repeat;
+}
+
+#pixel-art.arrows::after {
+    left: calc(70% + 1rem);
+    background: url("../images/ending_arrows.gif") center / contain no-repeat;
+}
+
 #pixel-art.fireworks::before,
 #pixel-art.fireworks::after {
     content: "";

@@ -127,13 +127,15 @@ const story = {
 
     ending_bedroom_bad: {
         type: "ending",
+        decoration: "arrows",
+        image: "ending_bedroom_bad.gif",
         text: "A woman flies into the room, fear and confusion painted on her face. You throw yourself on her, claws tearing into her skin before she even understands what is happening.\n\nIn her panic, she throws you off her and you lay on the floor, passed out alongside the dead body.\n\nSorry {{catName}}, the neighbours will find you in the morning, but tonight's adventure is over.",
     },
 
     ending_bedroom_good: {
         type: "ending",
-        fireworks: true,
-        image: "ending_police.gif",
+        decoration: "fireworks",
+        image: "ending_bedroom_good.gif",
         text: "You fly out from under the bed and tangle yourself up in her legs. With a cry and with outstretched arms, she crashes to the floor, smashing the handle off the door and knocking herself unconcious.\n\nYou are both trapped in the room! This last commotion is the final straw for the neighbours, who have had enough and barge their way in. A scan of the room is enough for them to decide to call the police.\n\nWhen the dust settles after their investigation, you are hailed as hero! The police department officially adopts you as their mascot and you have found a new home. Three cheers for Officer {{catName}}!",
     },
 };
