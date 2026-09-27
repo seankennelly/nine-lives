@@ -1,3 +1,14 @@
+    
+    // blank: {
+    //   text: ``,
+    //   image: "",
+    //   choices: [
+    //     { text: ``, next: "" },,
+    //     { text: ``, next: "" },
+    //   ],
+    // },
+
+
 const story = {
     // ===================
     // TITLE CARD
@@ -42,7 +53,6 @@ const story = {
         choices: [
             { text: `Yes, let's investigate`, next: "overhear_kitchen" },
             { text: `I'm nearly at the top, I'll keep going to the rooftop`, next: "overhear_rooftop" },
-            // TODO: Write rooftop branch
         ],
     },
 
@@ -64,7 +74,7 @@ const story = {
     // KITCHEN FROM ROOFTOP
 
     kitchen_from_rooftop: {
-        text: `As you enter, you find yourself in a kitchen.\n\nYou hear footsteps coming in your direction.\n\nWhere will you go now?`,
+        text: `As you go through the window, you find yourself in a kitchen.\n\nYou hear footsteps coming in your direction.\n\nWhere will you go now?`,
         image: "kitchen.gif",
         choices: [
             { text: `Investigate the bedroom`, next: "bedroom" },
@@ -80,7 +90,6 @@ const story = {
         choices: [
             { text: `Screw that, I'm hiding in a cupboard!`, next: "ending_kitchen_bad" },
             { text: `Heck yes! I aint afraid of nobody`, next: "ending_kitchen_good" },
-            // TODO: Write kitchen ending good
         ],
     },
 
@@ -90,6 +99,7 @@ const story = {
 
     overhear_rooftop: {
         text: `On the rooftop, you slip past a vent you can hear an echoey voice drifting up from the flat below. A woman is murmering to herself.\n\n"I can't believe I finally killed him. And after all these years it was so easy."\n\nWhere will you go now?`,
+        image: "overhear_rooftop.gif",
         choices: [
             { text: `You know what? This is too juicy. Let's get back to that open window`, next: "kitchen_from_rooftop" },
             { text: `This is none of my beeswax. I'll carry on over the rooftop`, next: "edge_of_rooftop" },
@@ -135,6 +145,19 @@ const story = {
     },
 
     // ===================
+    // ROAD
+    // ===================
+
+    road: {
+        text: `As you head down the alley, two startled mice dart out from behind a bin and race ahead of you. The chase is on!\n\nWhen they reach the road, one goes left and other goes right.\n\nWhich one do you want to follow?`,
+        image: "road.gif",
+        choices: [
+            { text: `The mouse that went left looked a little plumper. I'll go after that one`, next: "bookies" },
+            { text: `The mouse that went right was a little slower so should be easier to catch`, next: "laundrette" },
+        ],
+    },
+
+    // ===================
     // ENDINGS
     // ===================
 
@@ -167,13 +190,14 @@ const story = {
         type: "ending",
         decoration: "arrows",
         image: "ending_kitchen_bad.gif",
+        // Todo: Update this image to make eyes look more feline
         text: `You dart into the cupboard just in time. Moments later the woman comes in and starts hurriedly rummaging around various cupboards and draws, pulling out hidden wads of money.\n\nShe makes her way over to your hiding spot. Is the jig up?\n\nNo, she places a heavy chair in front of your cupboard, and steps onto it to reach a high shelf. With an last exhalation of relief, she whispers to herself: "Money ... passport ... Time to go."\n\nShe leaves the room and the apartment, locking the door behind her.\n\nYour efforts to move the heavy chair are in vain, and you realise you are trapped. It could be days before someone finds you. At least there are Cheerios in here...`,
     },
 
     ending_kitchen_good: {
-      type: "ending",
-      decoration: "fireworks",
-      image: "ending_kitchen_good.gif",
-      text: `Rooted to the spot, you prepare to face the killer as she walks through the door. Claws ready, you tense every muscle, ready to spring into attack.\n\nWhat you don't expect is the look of tender relief on the woman's face as she sees you. "Oh", she says as she comes to a halt, before slowly bending down and extending a hand to you. You didn't anticipate this rather vulnerable-looking person and her guestures of friendship.\n\n"You're just a lost cat. A lost soul, like me. Lost souls like us have to stick together you know." As you relax your arched back, she strokes you.\n\n"Mabye both of us could do with a fresh start tonight", she murmers, as she scoops you into her arms. "Let's get out of here." You've found a new home in the arms of someone who will fight tooth and nail to keep you safe.`
-    }
+        type: "ending",
+        decoration: "fireworks",
+        image: "ending_kitchen_good.gif",
+        text: `Rooted to the spot, you prepare to face the killer as she walks through the door. Claws ready, you tense every muscle, ready to spring into attack.\n\nWhat you don't expect is the look of tender relief on the woman's face as she sees you. "Oh", she says as she comes to a halt, before slowly bending down and extending a hand to you. You didn't anticipate this rather vulnerable-looking person and her guestures of friendship.\n\n"You're just a lost cat. A lost soul, like me. Lost souls like us have to stick together you know." As you relax your arched back, she strokes you.\n\n"Mabye both of us could do with a fresh start tonight", she murmers, as she scoops you into her arms. "Let's get out of here." You've found a new home in the arms of someone who will fight tooth and nail to keep you safe.`,
+    },
 };
